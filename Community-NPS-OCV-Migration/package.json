@@ -1,0 +1,29 @@
+{
+  "name": "community-nps-ocv-migration",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "localBuild": "arx dev src/main.jsx",
+    "build": "esbuild src/main.jsx --bundle --external:@ms-ofb/officebrowserfeedback --loader:.gif=dataurl --loader:.svg=dataurl --loader:.woff=dataurl --loader:.ttf=dataurl --loader:.eot=dataurl --minify --sourcemap --outfile=assets/App.js --target=safari11 --watch",
+    "lint": "eslint .",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "@ms-ofb/officebrowserfeedback": "^2.10.1",
+    "react": "^19.1.0",
+    "react-dom": "^19.1.0"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.25.0",
+    "@types/react": "^19.1.2",
+    "@types/react-dom": "^19.1.2",
+    "@vitejs/plugin-react": "^4.4.1",
+    "eslint": "^9.25.0",
+    "eslint-plugin-react-hooks": "^5.2.0",
+    "eslint-plugin-react-refresh": "^0.4.19",
+    "globals": "^16.0.0",
+    "vite": "^6.3.5"
+  }
+}
