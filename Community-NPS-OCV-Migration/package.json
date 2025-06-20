@@ -5,8 +5,8 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "localBuild": "arx dev src/main.jsx",
-    "build": "esbuild src/main.jsx --bundle --external:@ms-ofb/officebrowserfeedback --loader:.gif=dataurl --loader:.svg=dataurl --loader:.woff=dataurl --loader:.ttf=dataurl --loader:.eot=dataurl --minify --sourcemap --outfile=assets/App.js --target=safari11 --watch",
+    "localBuild": "arx dev src/OCVMain.jsx",
+    "build": "esbuild src/OCVMain.jsx --bundle --external:@ms-ofb/officebrowserfeedback --loader:.gif=dataurl --loader:.svg=dataurl --loader:.woff=dataurl --loader:.ttf=dataurl --loader:.eot=dataurl --minify --sourcemap --outfile=assets/OCVApp.js --target=safari11 --watch",
     "lint": "eslint .",
     "preview": "vite preview"
   },

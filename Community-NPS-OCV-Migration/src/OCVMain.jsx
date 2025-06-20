@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import App from './App.jsx';
+import App from './OCVSurveyPopup.jsx';
 
 function mountApp() {
   const container = document.getElementById('careerhub_root'); // match this to your HTML

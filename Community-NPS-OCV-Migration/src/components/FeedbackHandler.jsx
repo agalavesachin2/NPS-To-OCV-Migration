@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import { initializeFloodgate } from "../sdk/floodgate";
+import { initializeFloodgate } from "../sdk/Floodgate.js";
 
 // Helper to wait until the Floodgate SDK is fully loaded
 const waitForFloodgateSdk = (retries = 20, delay = 300) => {

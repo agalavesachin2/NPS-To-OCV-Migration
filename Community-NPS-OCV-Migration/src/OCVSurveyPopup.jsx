@@ -1,18 +1,3 @@
-// import React from "react";
-// import FeedbackHandler from "./components/FeedbackHandler";
-
-// function App() {
-//   return (
-//     <>
-//       <FeedbackHandler />
-//       <h1>NPS to OCV Migration - React Application!</h1>
-//     </>
-//   );
-// }
-
-// export default App;
-
-
 // App.jsx
 import React from "react";
 import FeedbackHandler from "./components/FeedbackHandler";
