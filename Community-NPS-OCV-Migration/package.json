@@ -5,25 +5,38 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "localBuild": "arx dev src/OCVMain.jsx",
-    "build": "esbuild src/OCVMain.jsx --bundle --external:@ms-ofb/officebrowserfeedback --loader:.gif=dataurl --loader:.svg=dataurl --loader:.woff=dataurl --loader:.ttf=dataurl --loader:.eot=dataurl --minify --sourcemap --outfile=assets/OCVApp.js --target=safari11 --watch",
+    "localBuild": "arx dev src/index.jsx",
+    "build": "esbuild src/index.jsx --bundle --external:@ms-ofb/officebrowserfeedback --loader:.gif=dataurl --loader:.svg=dataurl --loader:.woff=dataurl --loader:.ttf=dataurl --loader:.eot=dataurl --minify --sourcemap --outfile=assets/App2.js --target=safari11 --watch",
     "lint": "eslint .",
     "preview": "vite preview"
   },
   "dependencies": {
-    "@ms-ofb/officebrowserfeedback": "^2.10.1",
-    "react": "^19.1.0",
-    "react-dom": "^19.1.0"
+    "@fluentui/react-components": "^9.15.0",
+    "@microsoft/oteljs": "^4.9.0",
+    "@microsoft/oteljs-1ds": "^4.9.0",
+    "@ms-ofb/officebrowserfeedback": "^2.10.2",
+    "@ms-ofb/officebrowserfeedback-ext-dynamic-campaign": "^0.0.13",
+    "@ms-ofb/officebrowserfeedbacknpm": "^2.10.0",
+    "react": "^17.0.1",
+    "react-dom": "^17.0.1"
   },
   "devDependencies": {
     "@eslint/js": "^9.25.0",
-    "@types/react": "^19.1.2",
-    "@types/react-dom": "^19.1.2",
+    "@types/prop-types": "^15.7.3",
+    "@types/react": "^16.14.2",
+    "@types/react-dom": "^16.9.10",
     "@vitejs/plugin-react": "^4.4.1",
+    "css-loader": "^5.2.7",
+    "es6-promise": "^4.2.8",
     "eslint": "^9.25.0",
     "eslint-plugin-react-hooks": "^5.2.0",
     "eslint-plugin-react-refresh": "^0.4.19",
     "globals": "^16.0.0",
+    "html-webpack-plugin": "^4.5.0",
+    "source-map-loader": "^1.1.3",
+    "style-loader": "^2.0.0",
+    "ts-loader": "^8.0.11",
+    "typescript": "^4.1.2",
     "vite": "^6.3.5"
   }
 }
