@@ -70,6 +70,13 @@ export const APP_CONSTANTS = {
         SURVEY_ENABLED: true
     },
 
+    // Storage Keys
+    STORAGE_KEYS: {
+        SESSION_ID: "ocvSessionId",
+        DEVICE_ID: "floodgate-deviceId",
+        OTEL_SESSION_ID: "otelSessionId"
+    },
+
     // Error Messages
     ERROR_MESSAGES: {
         SDK_ERROR: "SDK encountered an error",
