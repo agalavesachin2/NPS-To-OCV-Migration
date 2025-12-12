@@ -4,14 +4,22 @@
 
 <main id="careerhub_root"></main>
 
-<#-- This works without <#attempt> -->
+<#-- Khorso classic environment - with attempt recovery blocks -->
 <#if !user.anonymous>
-  <#assign query = "select first_name, last_name, sso_id from users where id = '${user.id}'" />
-  <#assign user_details = restadmin("2.0", "/search?q=" + query?url) />
+  <#attempt>
+    <#assign query = "select first_name, last_name, sso_id from users where id = '${user.id}'" />
+    <#assign user_details = restadmin("2.0", "/search?q=" + query?url) />
 
-  <#-- Handle potential null or empty sso_id safely -->
-  <#assign sso_id = user_details.data.items[0].sso_id!"" />
-  <#assign nps_sso_id = sso_id?has_content?then(sso_id, "3fa85f64-5717-4562-b3fc-2c963f66afa6") />
+    <#-- Handle potential null or empty sso_id safely -->
+    <#assign sso_id = user_details.data.items[0].sso_id!"" />
+    <#assign nps_sso_id = sso_id?has_content?then(sso_id, "3fa85f64-5717-4562-b3fc-2c963f66afa6") />
+  <#recover>
+    <#-- Recovery block: Set default values if query or API call fails -->
+    <#assign query = "" />
+    <#assign user_details = {} />
+    <#assign sso_id = "" />
+    <#assign nps_sso_id = "3fa85f64-5717-4562-b3fc-2c963f66afa6" />
+  </#attempt>
   <div id="nps-display"></div>
 
 
