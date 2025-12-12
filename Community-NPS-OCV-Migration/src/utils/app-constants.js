@@ -70,13 +70,6 @@ export const APP_CONSTANTS = {
         SURVEY_ENABLED: true
     },
 
-    // Storage Keys
-    STORAGE_KEYS: {
-        SESSION_ID: "ocvSessionId",
-        DEVICE_ID: "floodgate-deviceId",
-        OTEL_SESSION_ID: "otelSessionId"
-    },
-
     // Error Messages
     ERROR_MESSAGES: {
         SDK_ERROR: "SDK encountered an error",
@@ -137,11 +130,6 @@ export const OCVStateLocalStorageKeys = [
     "obf-SurveyEventActivityStats"
 ];
 
-// // Internal Logging Constants
-// export const FloodgateActivityName = {
-//     AppUsageTime: "AppUsageTime",
-//     ReadyToPrompt: "ReadytoPrompt"
-// };
 
 // Internal Logging Constants
 export const FLOODGATE_ACTIVITIES = {
