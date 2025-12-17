@@ -23,7 +23,6 @@
     var nps_sso_id = "${nps_sso_id}";
   </script>
 </#if>
-<script src="${asset.get('/html/assets/officebrowserfeedback_floodgate.js')}"></script>
 <script src="${asset.get('/html/assets/OCVApp.js')}"></script>
 <#recover>
     <div style="display: none;">${.error}</div>
