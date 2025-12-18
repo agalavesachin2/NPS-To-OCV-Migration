@@ -1,5 +1,11 @@
 // Application Configuration Constants
 export const APP_CONSTANTS = {
+    // ECS Endpoint Configuration
+    ECS_ENDPOINTS: {
+        PRODUCTION: "https://config.edge.skype.com",
+        PRE_PRODUCTION: "https://config.edge.skype.net"
+    },
+
     // Basic App Information
     APP: {
         ID: 2931,
@@ -11,16 +17,16 @@ export const APP_CONSTANTS = {
 
     // Environment Configuration
     ENVIRONMENT: {
-        TYPE: "Production", // "Production", "Pre-Production", "Development"
+        TYPE: "Pre-Production", // "Production", "Pre-Production", "Development"
         LOCALE: "en-us",
         LANGUAGE: "en",
-        IS_PRODUCTION: true
+        IS_PRODUCTION: false
     },
 
     // Floodgate SDK Configuration
     FLOODGATE: {
-        APP_ID: 2931, // 50378 = Pre-Production - 2931 = Production
-        ENVIRONMENT: 0, // 0 = Production, 1 = Integration
+        APP_ID: 50378, // 50378 = Pre-Production - 2931 = Production
+        ENVIRONMENT: 1, // 0 = Production, 1 = Integration
         AUTO_DISMISS: 2,
         RETENTION_DAYS: 90,
         SURVEY_CONTAINER: "nps-display",
@@ -50,7 +56,7 @@ export const APP_CONSTANTS = {
     // Dynamic Campaign Configuration
     DYNAMIC_CAMPAIGN: {
         ENABLED: true,
-        HOST: "https://config.edge.skype.com", // PPE ECS endpoint https://config.edge.skype.net // Production ECS endpoint https://config.edge.skype.com
+        HOST: "", // Will be set dynamically based on environment
         AGENT: "ChillMicrosoftFabric",
         AUDIENCE: "Internal",
         SURVEY_VALIDATION: "true",
@@ -119,6 +125,14 @@ export const ENV_CONFIG = {
 export const getEnvironmentConfig = (envType = APP_CONSTANTS.ENVIRONMENT.TYPE) => {
     return ENV_CONFIG[envType.toUpperCase().replace("-", "_")] || ENV_CONFIG.DEVELOPMENT;
 };
+
+export const getECSEndpoint = (envType = APP_CONSTANTS.ENVIRONMENT.TYPE) => {
+    const endpoint = APP_CONSTANTS.ECS_ENDPOINTS[envType.toUpperCase().replace("-", "_")];
+    return endpoint || APP_CONSTANTS.ECS_ENDPOINTS.PRE_PRODUCTION;
+};
+
+// Set DYNAMIC_CAMPAIGN HOST based on current environment
+APP_CONSTANTS.DYNAMIC_CAMPAIGN.HOST = getECSEndpoint();
 
 export const isProduction = () => {
     return APP_CONSTANTS.ENVIRONMENT.TYPE === "Production";
